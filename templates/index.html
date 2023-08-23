@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Home</title>
+    <style>
+      .center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .center form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <form action="/" method="POST">
+        
+        <input type="text" name="query" placeholder="Enter your search query">
+        <button type="submit">Search</button>
+      </form>
+    </div>
+    <div class="center">
+      <img src="data:image/png;base64,{{image}}" alt="Image">
+      <script>
+        const imgElement = document.getElementById('image');
+
+        function updateImage() {
+            imgElement.src = '/image_stream?' + new Date().getTime(); // Add timestamp to prevent caching
+        }
+
+        setInterval(updateImage, 1000); // Update every 1 second
+    </script>
+    </div>
+  </body>
+</html>
